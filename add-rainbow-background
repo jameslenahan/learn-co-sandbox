@@ -1,0 +1,7 @@
+def greeting
+  puts "Hi, Ruby programmer!"
+end
+
+10.times do 
+  puts "Hi! Welcome to my very repetitive program"
+end
