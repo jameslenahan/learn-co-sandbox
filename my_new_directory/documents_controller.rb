@@ -1,21 +1,20 @@
 class DocumentsController < ApplicationController
+  before_action :require_login
+ 
   def show
-    return head(:forbidden) unless session.include? :user_id
     @document = Document.find(params[:id])
   end
  
   def index
-    return head(:forbidden) unless session.include? :user_id
   end
  
   def create
-    return head(:forbidden) unless session.include? :user_id
     @document = Document.create(author_id: user_id)
   end
  
-  def update
+  private
+ 
+  def require_login
     return head(:forbidden) unless session.include? :user_id
-    @document = Document.find(params[:id])
-    # code to update a document
   end
 end
